@@ -14,4 +14,8 @@ let User = {
     passion : "Musique",
 }
 
+var history
+
 console.log(User)
+
+
