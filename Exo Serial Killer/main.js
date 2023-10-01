@@ -35,13 +35,13 @@ let Jason = new SerialKiller ("Jason", 100)
 console.log(Jason)
 
 let Nerd = new Archetypes ("Le/La Nerd", 0.4, 0.4, 0.2)
-let Athlete = new Archetypes ("L'Athlète", 0.2, 0.2, 0.8)
-let Coward = new Archetypes ("Le/La Trouillard(e)", 0.3, 0.3, 0.4)
-let Brave = new Archetypes ("Le/La courageux(se)", 0.3, 0.3, 0.4)
+let Athlete = new Archetypes ("L'Athlète", 0.2, 0.2, 0.6)
+let Coward = new Archetypes ("Le/La Trouillard(e)", 0.5, 0.2, 0.3)
+let Brave = new Archetypes ("Le/La courageux(se)", 0.1, 0.3, 0.6)
 let Sceptic = new Archetypes ("Le/La Sceptique", 0.3, 0.3, 0.4)
-let Drunk = new Archetypes ("Le/La Bourré(e)", 0.3, 0.3, 0.4)
-let Fat = new Archetypes ("Le/La Gros(se)", 0.3, 0.3, 0.4)
-let Lover = new Archetypes ("L'Amoureux/se", 0.3, 0.3, 0.4)
+let Drunk = new Archetypes ("Le/La Bourré(e)", 0.8, 0.1, 0.1)
+let Fat = new Archetypes ("Le/La Gros(se)", 0.6, 0.2, 0.2)
+let Lover = new Archetypes ("L'Amoureux/se", 0.4, 0.3, 0.3)
 
 let archetypesArray = [Nerd, Athlete, Coward, Brave, Sceptic, Drunk, Fat, Lover]
 
@@ -80,6 +80,8 @@ function attack (Jason, living) {
         }
         else {
             if (randomNumber <= living[victim].archetype.chanceToHurtByDying+living[victim].chanceOfDying){
+                console.log(living[victim].name, living[victim].archetype.name, "s'est fait(e) tuer par", Jason.name, "mais a réussi à le blesser")
+                console.log("Il reste", Jason.hp, "HP à", Jason.name)
                 Jason.hp -= 15
                 death.push(victim)
                 living.splice(victim,1) 
@@ -91,7 +93,7 @@ function attack (Jason, living) {
             }
         }
         if (Jason.hp <= 0) {
-            console.log(Jason.name, "est mort ! Les sruvivants s'en sont sortis !", death.length, "sont morts")
+            console.log(Jason.name, "est mort ! Les survivants s'en sont sortis !", death.length, "sont morts")
             console.log("RIP à", death)
             break
         }
@@ -99,7 +101,6 @@ function attack (Jason, living) {
             console.log("Il reste", Jason.hp, "HP à", Jason.name, ". Tous les survivants sont morts...")
             break
         }
-       
     }
 }
 
