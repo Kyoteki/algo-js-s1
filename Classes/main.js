@@ -7,35 +7,36 @@ class Pokemon {
         this.luck=luck
     }
     AttackPokemon (Opponent, damages = this.attack - Opponent.defense) {
-        if (damages <= 0){
-            damages=1
-            Opponent.hp = Opponent.hp - damages
-        }
+            if (damages <= 0){
+                damages=1
+                Opponent.hp = Opponent.hp - damages
+            }
     }
 }
-let Garchomp = new Pokemon("Garchomp", 108, 130, 95, 50)
-let Greninja = new Pokemon("Greninja", 72, 95, 67, 70)
 
-console.log(Garchomp.name, Garchomp.hp, "HP")
-console.log(Greninja.name, Greninja.hp, "HP")
+let Pikachu = new Pokemon("Pikachu", 35, 55, 40, 0.5)
+let Evoli = new Pokemon("Evoli", 55, 55, 50, 0.5)
 
-while (Garchomp.hp >= 1 || Greninja.hp >=1) {
-    if (Garchomp.hp >0) {
-        console.log(Greninja.name, "attack")
-        Greninja.AttackPokemon(Garchomp)
-        console.log(Garchomp.name, Garchomp.hp, "hp")
+console.log(Pikachu.name, Pikachu.hp, "HP")
+console.log(Evoli.name, Evoli.hp, "HP")
+
+while (Pikachu.hp >= 1 || Evoli.hp >=1) {
+    if (Pikachu.hp >0) {
+        console.log(Evoli.name, "attack")
+        Evoli.AttackPokemon(Pikachu)
+        console.log(Pikachu.name, Pikachu.hp, "hp")
     }
     else {
-        console.log(Garchomp.name, "is KO.", Greninja.name, "win")
+        console.log(Pikachu.name, "is KO.", Evoli.name, "win")
         break
     }
-    if (Greninja.hp >0){
-        console.log(Garchomp.name, "attack")
-        Garchomp.AttackPokemon(Greninja)
-        console.log(Greninja.name, Greninja.hp, "hp")
+    if (Evoli.hp >0){
+        console.log(Pikachu.name, "attack")
+        Pikachu.AttackPokemon(Evoli)
+        console.log(Evoli.name, Evoli.hp, "hp")
     }
     else {
-        console.log(Greninja.name, "is KO.", Garchomp.name, "win")
+        console.log(Evoli.name, "is KO.", Pikachu.name, "win")
         break
     }
 }

@@ -5,7 +5,7 @@ musicThree = "Watch The World Burn - Falling In Reverse"
 musicFour = "Kick Back - Chainsaw Man"
 
 
-let playlist = [musicZero ,musicOne, musicTwo, musicThree, musicFour]
+let names = [musicZero ,musicOne, musicTwo, musicThree, musicFour]
 
 
 class Character {
@@ -15,7 +15,7 @@ class Character {
     }
     travel (totalTaxi = 1, totalRedLights = 0) {
         while (totalRedLights < 30 && this.mentalHealth > 0) {
-            let randomElement = playlist[Math.floor(Math.random() * playlist.length)]
+            let randomElement = names[Math.floor(Math.random() * names.length)]
             totalRedLights++
             console.log(totalRedLights, "feux passés,", totalTaxi, "taxis pris,", this.mentalHealth, "points de santé mentale restante.")
             console.log(randomElement, "s'est lancée")
@@ -38,6 +38,6 @@ class Character {
             
     }
 }
-let John = new Character ("John", 10,)
+let John = new Character ("John", 10)
 
 John.travel()
