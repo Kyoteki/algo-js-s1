@@ -73,7 +73,6 @@ function attack (Jason, living) {
         let victim = Math.floor(Math.random() * living.length)
         console.log(living[victim].name, living[victim].archetype.name, "se fait attaquer par", Jason.name)
         let randomNumber = Math.random()
-        console.log(randomNumber, "a été tiré")
         if (randomNumber <= living[victim].archetype.chanceOfDying) {
             death.push(victim)
             console.log(living[victim].name, living[victim].archetype.name, "s'est fait(e) tuer par", Jason.name)
@@ -91,11 +90,16 @@ function attack (Jason, living) {
                 console.log("Il reste", Jason.hp, "HP à", Jason.name)
             }
         }
-        if (living.length == 0 || Jason.hp <= 0) {
+        if (Jason.hp <= 0) {
             console.log(Jason.name, "est mort ! Les sruvivants s'en sont sortis !", death.length, "sont morts")
             console.log("RIP à", death)
             break
         }
+        if (living.length == 0) {
+            console.log("Il reste", Jason.hp, "HP à", Jason.name, ". Tous les survivants sont morts...")
+            break
+        }
+       
     }
 }
 
